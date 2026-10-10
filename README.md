@@ -13,6 +13,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178c6.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4_Liquid_Glass-38bdf8.svg?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![Vite Bundler](https://img.shields.io/badge/Vite-5.4-646cff.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![Live Production](https://img.shields.io/badge/Live_App-web--scout--ml.vercel.app-0071e3?style=for-the-badge&logo=vercel&logoColor=white)](https://web-scout-ml.vercel.app)
 [![Auto-Updated](https://img.shields.io/badge/Threat_Intel-2024--2027_Evergreen-34c759.svg?style=for-the-badge&logo=githubactions&logoColor=white)](#-evergreen-auto-updating-architecture)
 
 <br />
@@ -21,7 +22,9 @@
 
 <br />
 
-[Explore Features](#-key-features) • [TypeSafe Evaluation](#-typesafe-ai-system-one-evaluation) • [Architecture](#-architecture--data-flow) • [Quick Start](#-quick-start) • [Auto-Updating](#-evergreen-auto-updating-architecture)
+🌐 **Live Application**: [**https://web-scout-ml.vercel.app**](https://web-scout-ml.vercel.app)
+
+[Live Demo](https://web-scout-ml.vercel.app) • [Explore Features](#-key-features) • [TypeSafe Evaluation](#-typesafe-ai-system-one-evaluation) • [Architecture](#-architecture--data-flow) • [Quick Start](#-quick-start) • [Auto-Updating](#-evergreen-auto-updating-architecture)
 
 </div>
 
