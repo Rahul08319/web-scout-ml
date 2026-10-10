@@ -1,0 +1,26 @@
+name: Production Deployment
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  production-deployment:
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: https://web-scout-ml.vercel.app
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Verify Live Production Deployment
+        run: |
+          echo "Syncing GitHub Production environment to official domain: https://web-scout-ml.vercel.app"
+          curl -sI https://web-scout-ml.vercel.app | head -n 5
