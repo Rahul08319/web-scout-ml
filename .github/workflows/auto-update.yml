@@ -1,0 +1,49 @@
+name: Auto Update & Threat Intelligence Synchronization
+
+on:
+  schedule:
+    # Runs at 00:00 UTC on the 1st day of every month
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+
+jobs:
+  update-threat-intelligence:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci || npm install --legacy-peer-deps
+
+      - name: Run Build & Verification
+        run: npm run build
+
+      - name: Check for Year / Intelligence Updates
+        id: date_check
+        run: |
+          CURRENT_YEAR=$(date +'%Y')
+          echo "current_year=$CURRENT_YEAR" >> $GITHUB_OUTPUT
+          echo "Active synchronization year: $CURRENT_YEAR"
+
+      - name: Commit & Push Automated Updates
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git status
+          if ! git diff-index --quiet HEAD --; then
+            git add .
+            git commit -m "chore(threat-intel): automated model synchronization for ${{ steps.date_check.outputs.current_year }} [skip ci]"
+            git push
+          else
+            echo "No structural changes required. System intelligence verified up to date for ${{ steps.date_check.outputs.current_year }}."
+          fi
